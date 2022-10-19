@@ -1,17 +1,14 @@
 import java.util.Scanner;
 
 public class DepositCalculator {
-    int amount;
-    int depositPeriod;
-    int action;
 
     double calculateComplexPercent(double amount, double yearRate, int depositPeriod) {
         double value = amount * Math.pow((1 + yearRate / 12), 12 * depositPeriod);
         return roundResult(value, 2);
     }
 
-    double calculateSimplePercent(double doubleAmount, double yearRate, int depositPeriod) {
-        return roundResult(doubleAmount + doubleAmount * yearRate * depositPeriod, 2);
+    double calculateSimplePercent(double amount, double yearRate, int depositPeriod) {
+        return roundResult(amount + amount * yearRate * depositPeriod, 2);
     }
 
     double roundResult(double value, int exponent) {  // Округлить значение
@@ -20,6 +17,9 @@ public class DepositCalculator {
     }
 
     void calculate() {
+        int amount;
+        int depositPeriod;
+        int action;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите сумму вклада в рублях:");
         amount = scanner.nextInt();
